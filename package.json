@@ -1,9 +1,9 @@
 {
-  "name": "RipBot",
+  "name": "UPBot",
   "version": "0.0.0",
   "private": true,
-  "author": "Michael Hayes <michael@hayes.io>",
-  "description": "rip it up",
+  "author": "Michael Hayes <michael@hayes.io>, Tyler Honsinger <tbhonsinger@gmail.com>",
+  "description": "UPrise",
   "scripts": {
     "start": "./bin/hubot"
   },
