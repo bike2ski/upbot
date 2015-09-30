@@ -91,7 +91,7 @@ module.exports = function plusplus(robot) {
     if (!score && score !== 0) return
 
     if (operator === '++') {
-      var message = name + ' has ' + score + pluralize(' Rip Point', score)
+      var message = name + ' has ' + score + pluralize(' UP Point', score)
 
       if (reason) {
           message += ', ' + reasonScore + ' of which '
@@ -99,9 +99,9 @@ module.exports = function plusplus(robot) {
             + ' for ' + reason + '.'
       }
     } else {
-      message = 'ouch! ' + name + ' loses a Rip Point'
+      message = 'ouch! ' + name + ' loses a UP Point'
       if (reason) message += ' for ' + reason
-      message += '. ' + name + ' now has ' + score + pluralize(' Rip Point', score)
+      message += '. ' + name + ' now has ' + score + pluralize(' UP Point', score)
     }
 
     msg.send(message)
@@ -117,12 +117,12 @@ module.exports = function plusplus(robot) {
     var name = cleanName(msg.match[2])
     var score = scoreKeeper.scoreForUser(name)
     var reasons = scoreKeeper.reasonsForUser(name)
-    var message = name + ' has ' + score + pluralize(' Rip Point', score)
+    var message = name + ' has ' + score + pluralize(' UP Point', score)
 
     if (typeof reasons === 'object' && Object.keys(reasons).length > 0) {
       message += ' here are some reasons:'
       message += _.reduce(reasons, function formatScore(memo, val, key) {
-        return memo += '\n' + key + ': ' + val + pluralize(' Rip Point', val)
+        return memo += '\n' + key + ': ' + val + pluralize(' UP Point', val)
       }, '')
     }
 
@@ -148,7 +148,7 @@ module.exports = function plusplus(robot) {
     if (scoreKeeper.erase(name, from, room, reason)) {
       message = reason != null ?
         'Erased the following reason from ' + name + ': ' + reason :
-        'Erased Rip Points for ' + name
+        'Erased UP Points for ' + name
 
       return msg.send(message)
     }
